@@ -1,0 +1,116 @@
+================================================================================
+  快速修复指南 - 解决 settle_cost 错误
+================================================================================
+
+【问题】
+运行 run_demo 时出现：
+  错误: 文件: settle_cost.m 行: 29 列: 1
+  函数 'settle_cost' 已在此作用域内声明。
+
+【已修复】
+✅ 所有函数文件已清理并重新创建
+✅ 移除了多余的空行和格式问题
+✅ 验证了函数定义正确性
+
+【立即尝试】
+
+方法1: 清除缓存后重新运行
+────────────────────────────────────────
+>> clear all
+>> clc
+>> run_demo
+
+方法2: 重启MATLAB后运行
+────────────────────────────────────────
+1. 关闭MATLAB
+2. 重新打开MATLAB
+3. cd /workspace/matlab
+4. run_demo
+
+方法3: 验证语法（推荐）
+────────────────────────────────────────
+>> test_syntax     % 运行语法检查脚本
+>> run_demo        % 如果验证通过，运行仿真
+
+【如果问题仍存在】
+
+检查路径冲突：
+────────────────────────────────────────
+>> which settle_cost -all
+
+应该只显示一个文件：
+  /workspace/matlab/settle_cost.m
+
+如果显示多个，请清除其他路径：
+>> rmpath('其他路径')
+
+清除所有函数缓存：
+────────────────────────────────────────
+>> clear functions
+>> rehash toolboxcache
+>> run_demo
+
+手动验证文件：
+────────────────────────────────────────
+>> edit settle_cost.m
+
+确保文件结构是：
+  function [cost_sp, usage] = settle_cost(...)
+      % 注释
+      ... 代码 ...
+  end
+
+只有一个 end 在文件末尾！
+
+【文件状态】
+
+已修复的文件（行数）：
+  settle_cost.m       27 行  ✅
+  jain_index.m        29 行  ✅
+  rate_uplink.m       35 行  ✅
+  total_latency.m     62 行  ✅
+
+【预期输出】
+
+修复成功后应该看到：
+────────────────────────────────────────
+===== Wireless Network Simulation =====
+Generating users...
+Generated 10 RT users and 15 NRT users.
+
+Running simulation for 50 time slots...
+  Slot 10/50
+  Slot 20/50
+  Slot 30/50
+  Slot 40/50
+  Slot 50/50
+Simulation completed.
+
+===== Summary Statistics =====
+RIPP-DR:
+  RT Miss Rate:       XX.XX%
+  RT Avg Latency:     0.XXXX s
+  ...
+
+并生成 5 个文件：
+  ✅ miss_rt.png
+  ✅ util.png
+  ✅ cost.png
+  ✅ ripp_dr_results.csv
+  ✅ tqdo_results.csv
+
+【仍有问题？】
+
+请运行诊断：
+────────────────────────────────────────
+>> ver                          % MATLAB版本
+>> pwd                          % 当前目录
+>> which settle_cost -all       % 函数路径
+>> ls *.m                       % 列出所有文件
+
+并提供完整错误信息。
+
+================================================================================
+修复时间: 2025-11-03
+状态: ✅ 已完成
+================================================================================
