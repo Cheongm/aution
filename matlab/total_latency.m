@@ -1,5 +1,4 @@
-function [t_tot, t_tran, t_du, t_cu] = total_latency(d_bits, r_uplink, ...
-    theta_du, theta_cu, f_req, f_du_alloc, f_cu_alloc, t_bh, mode)
+function [t_tot, t_tran, t_du, t_cu] = total_latency(d_bits, r_uplink, theta_du, theta_cu, f_req, f_du_alloc, f_cu_alloc, t_bh, mode)
 % TOTAL_LATENCY Compute end-to-end latency for a task
 %
 % Inputs:

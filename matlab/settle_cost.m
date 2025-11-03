@@ -1,5 +1,4 @@
-function [cost_sp, usage] = settle_cost(alloc_B, alloc_f_du, alloc_f_cu, ...
-    price_ru, price_du, price_cu)
+function [cost_sp, usage] = settle_cost(alloc_B, alloc_f_du, alloc_f_cu, price_ru, price_du, price_cu)
 % SETTLE_COST Compute SP cost based on pay-as-you-use pricing (Eq. 21)
 %
 % Inputs:
