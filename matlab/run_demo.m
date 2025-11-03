@@ -124,13 +124,31 @@ fprintf('Simulation completed.\n');
 fprintf('\n===== Summary Statistics =====\n');
 
 % RIPP-DR
-miss_rt_ripp = mean(cellfun(@(x) x.miss_rt, results_ripp));
-avg_lat_ripp = mean(cellfun(@(x) x.avg_lat_rt, results_ripp));
-avg_util_ru_ripp = mean(cellfun(@(x) x.util_ru, results_ripp));
-avg_util_du_ripp = mean(cellfun(@(x) x.util_du, results_ripp));
-avg_util_cu_ripp = mean(cellfun(@(x) x.util_cu, results_ripp));
-avg_cost_ripp = mean(cellfun(@(x) x.cost_sp, results_ripp));
-avg_jain_ripp = mean(cellfun(@(x) x.jain_nrt, results_ripp));
+miss_rt_vals = zeros(Config.T, 1);
+avg_lat_vals = zeros(Config.T, 1);
+util_ru_vals = zeros(Config.T, 1);
+util_du_vals = zeros(Config.T, 1);
+util_cu_vals = zeros(Config.T, 1);
+cost_vals = zeros(Config.T, 1);
+jain_vals = zeros(Config.T, 1);
+
+for t = 1:Config.T
+    miss_rt_vals(t) = results_ripp{t}.miss_rt;
+    avg_lat_vals(t) = results_ripp{t}.avg_lat_rt;
+    util_ru_vals(t) = results_ripp{t}.util_ru;
+    util_du_vals(t) = results_ripp{t}.util_du;
+    util_cu_vals(t) = results_ripp{t}.util_cu;
+    cost_vals(t) = results_ripp{t}.cost_sp;
+    jain_vals(t) = results_ripp{t}.jain_nrt;
+end
+
+miss_rt_ripp = mean(miss_rt_vals);
+avg_lat_ripp = mean(avg_lat_vals);
+avg_util_ru_ripp = mean(util_ru_vals);
+avg_util_du_ripp = mean(util_du_vals);
+avg_util_cu_ripp = mean(util_cu_vals);
+avg_cost_ripp = mean(cost_vals);
+avg_jain_ripp = mean(jain_vals);
 
 fprintf('RIPP-DR:\n');
 fprintf('  RT Miss Rate:       %.2f%%\n', miss_rt_ripp * 100);
@@ -142,13 +160,31 @@ fprintf('  Avg SP Cost:        %.4f currency/slot\n', avg_cost_ripp);
 fprintf('  NRT Jain Index:     %.4f\n', avg_jain_ripp);
 
 % TQDO
-miss_rt_tqdo = mean(cellfun(@(x) x.miss_rt, results_tqdo));
-avg_lat_tqdo = mean(cellfun(@(x) x.avg_lat_rt, results_tqdo));
-avg_util_ru_tqdo = mean(cellfun(@(x) x.util_ru, results_tqdo));
-avg_util_du_tqdo = mean(cellfun(@(x) x.util_du, results_tqdo));
-avg_util_cu_tqdo = mean(cellfun(@(x) x.util_cu, results_tqdo));
-avg_cost_tqdo = mean(cellfun(@(x) x.cost_sp, results_tqdo));
-avg_jain_tqdo = mean(cellfun(@(x) x.jain_nrt, results_tqdo));
+miss_rt_vals_tqdo = zeros(Config.T, 1);
+avg_lat_vals_tqdo = zeros(Config.T, 1);
+util_ru_vals_tqdo = zeros(Config.T, 1);
+util_du_vals_tqdo = zeros(Config.T, 1);
+util_cu_vals_tqdo = zeros(Config.T, 1);
+cost_vals_tqdo = zeros(Config.T, 1);
+jain_vals_tqdo = zeros(Config.T, 1);
+
+for t = 1:Config.T
+    miss_rt_vals_tqdo(t) = results_tqdo{t}.miss_rt;
+    avg_lat_vals_tqdo(t) = results_tqdo{t}.avg_lat_rt;
+    util_ru_vals_tqdo(t) = results_tqdo{t}.util_ru;
+    util_du_vals_tqdo(t) = results_tqdo{t}.util_du;
+    util_cu_vals_tqdo(t) = results_tqdo{t}.util_cu;
+    cost_vals_tqdo(t) = results_tqdo{t}.cost_sp;
+    jain_vals_tqdo(t) = results_tqdo{t}.jain_nrt;
+end
+
+miss_rt_tqdo = mean(miss_rt_vals_tqdo);
+avg_lat_tqdo = mean(avg_lat_vals_tqdo);
+avg_util_ru_tqdo = mean(util_ru_vals_tqdo);
+avg_util_du_tqdo = mean(util_du_vals_tqdo);
+avg_util_cu_tqdo = mean(util_cu_vals_tqdo);
+avg_cost_tqdo = mean(cost_vals_tqdo);
+avg_jain_tqdo = mean(jain_vals_tqdo);
 
 fprintf('\nTQDO:\n');
 fprintf('  RT Miss Rate:       %.2f%%\n', miss_rt_tqdo * 100);
