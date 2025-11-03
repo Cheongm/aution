@@ -133,13 +133,27 @@ cost_vals = zeros(Config.T, 1);
 jain_vals = zeros(Config.T, 1);
 
 for t = 1:Config.T
-    miss_rt_vals(t) = results_ripp{t}.miss_rt;
-    avg_lat_vals(t) = results_ripp{t}.avg_lat_rt;
-    util_ru_vals(t) = results_ripp{t}.util_ru;
-    util_du_vals(t) = results_ripp{t}.util_du;
-    util_cu_vals(t) = results_ripp{t}.util_cu;
-    cost_vals(t) = results_ripp{t}.cost_sp;
-    jain_vals(t) = results_ripp{t}.jain_nrt;
+    % Extract scalars, handle potential arrays
+    val = results_ripp{t}.miss_rt;
+    miss_rt_vals(t) = val(1);
+    
+    val = results_ripp{t}.avg_lat_rt;
+    avg_lat_vals(t) = val(1);
+    
+    val = results_ripp{t}.util_ru;
+    util_ru_vals(t) = val(1);
+    
+    val = results_ripp{t}.util_du;
+    util_du_vals(t) = val(1);
+    
+    val = results_ripp{t}.util_cu;
+    util_cu_vals(t) = val(1);
+    
+    val = results_ripp{t}.cost_sp;
+    cost_vals(t) = val(1);
+    
+    val = results_ripp{t}.jain_nrt;
+    jain_vals(t) = val(1);
 end
 
 miss_rt_ripp = mean(miss_rt_vals);
@@ -169,13 +183,27 @@ cost_vals_tqdo = zeros(Config.T, 1);
 jain_vals_tqdo = zeros(Config.T, 1);
 
 for t = 1:Config.T
-    miss_rt_vals_tqdo(t) = results_tqdo{t}.miss_rt;
-    avg_lat_vals_tqdo(t) = results_tqdo{t}.avg_lat_rt;
-    util_ru_vals_tqdo(t) = results_tqdo{t}.util_ru;
-    util_du_vals_tqdo(t) = results_tqdo{t}.util_du;
-    util_cu_vals_tqdo(t) = results_tqdo{t}.util_cu;
-    cost_vals_tqdo(t) = results_tqdo{t}.cost_sp;
-    jain_vals_tqdo(t) = results_tqdo{t}.jain_nrt;
+    % Extract scalars, handle potential arrays
+    val = results_tqdo{t}.miss_rt;
+    miss_rt_vals_tqdo(t) = val(1);
+    
+    val = results_tqdo{t}.avg_lat_rt;
+    avg_lat_vals_tqdo(t) = val(1);
+    
+    val = results_tqdo{t}.util_ru;
+    util_ru_vals_tqdo(t) = val(1);
+    
+    val = results_tqdo{t}.util_du;
+    util_du_vals_tqdo(t) = val(1);
+    
+    val = results_tqdo{t}.util_cu;
+    util_cu_vals_tqdo(t) = val(1);
+    
+    val = results_tqdo{t}.cost_sp;
+    cost_vals_tqdo(t) = val(1);
+    
+    val = results_tqdo{t}.jain_nrt;
+    jain_vals_tqdo(t) = val(1);
 end
 
 miss_rt_tqdo = mean(miss_rt_vals_tqdo);
