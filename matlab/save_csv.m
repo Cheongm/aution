@@ -15,25 +15,25 @@ data_ripp = zeros(T, 8);
 data_tqdo = zeros(T, 8);
 
 for t = 1:T
-    % RIPP-DR
+    % RIPP-DR - extract scalars
     data_ripp(t, 1) = t;  % slot
-    data_ripp(t, 2) = results_ripp{t}.miss_rt;
-    data_ripp(t, 3) = results_ripp{t}.avg_lat_rt;
-    data_ripp(t, 4) = results_ripp{t}.util_ru;
-    data_ripp(t, 5) = results_ripp{t}.util_du;
-    data_ripp(t, 6) = results_ripp{t}.util_cu;
-    data_ripp(t, 7) = results_ripp{t}.cost_sp;
-    data_ripp(t, 8) = results_ripp{t}.jain_nrt;
+    val = results_ripp{t}.miss_rt; data_ripp(t, 2) = val(1);
+    val = results_ripp{t}.avg_lat_rt; data_ripp(t, 3) = val(1);
+    val = results_ripp{t}.util_ru; data_ripp(t, 4) = val(1);
+    val = results_ripp{t}.util_du; data_ripp(t, 5) = val(1);
+    val = results_ripp{t}.util_cu; data_ripp(t, 6) = val(1);
+    val = results_ripp{t}.cost_sp; data_ripp(t, 7) = val(1);
+    val = results_ripp{t}.jain_nrt; data_ripp(t, 8) = val(1);
     
-    % TQDO
+    % TQDO - extract scalars
     data_tqdo(t, 1) = t;  % slot
-    data_tqdo(t, 2) = results_tqdo{t}.miss_rt;
-    data_tqdo(t, 3) = results_tqdo{t}.avg_lat_rt;
-    data_tqdo(t, 4) = results_tqdo{t}.util_ru;
-    data_tqdo(t, 5) = results_tqdo{t}.util_du;
-    data_tqdo(t, 6) = results_tqdo{t}.util_cu;
-    data_tqdo(t, 7) = results_tqdo{t}.cost_sp;
-    data_tqdo(t, 8) = results_tqdo{t}.jain_nrt;
+    val = results_tqdo{t}.miss_rt; data_tqdo(t, 2) = val(1);
+    val = results_tqdo{t}.avg_lat_rt; data_tqdo(t, 3) = val(1);
+    val = results_tqdo{t}.util_ru; data_tqdo(t, 4) = val(1);
+    val = results_tqdo{t}.util_du; data_tqdo(t, 5) = val(1);
+    val = results_tqdo{t}.util_cu; data_tqdo(t, 6) = val(1);
+    val = results_tqdo{t}.cost_sp; data_tqdo(t, 7) = val(1);
+    val = results_tqdo{t}.jain_nrt; data_tqdo(t, 8) = val(1);
 end
 
 % Create header

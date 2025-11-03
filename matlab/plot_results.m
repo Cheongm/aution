@@ -24,18 +24,19 @@ cost_ripp = zeros(T, 1);
 cost_tqdo = zeros(T, 1);
 
 for t = 1:T
-    miss_rt_ripp(t) = results_ripp{t}.miss_rt;
-    miss_rt_tqdo(t) = results_tqdo{t}.miss_rt;
-    avg_lat_ripp(t) = results_ripp{t}.avg_lat_rt;
-    avg_lat_tqdo(t) = results_tqdo{t}.avg_lat_rt;
-    util_ru_ripp(t) = results_ripp{t}.util_ru;
-    util_du_ripp(t) = results_ripp{t}.util_du;
-    util_cu_ripp(t) = results_ripp{t}.util_cu;
-    util_ru_tqdo(t) = results_tqdo{t}.util_ru;
-    util_du_tqdo(t) = results_tqdo{t}.util_du;
-    util_cu_tqdo(t) = results_tqdo{t}.util_cu;
-    cost_ripp(t) = results_ripp{t}.cost_sp;
-    cost_tqdo(t) = results_tqdo{t}.cost_sp;
+    % Extract scalars, handle potential arrays
+    val = results_ripp{t}.miss_rt; miss_rt_ripp(t) = val(1);
+    val = results_tqdo{t}.miss_rt; miss_rt_tqdo(t) = val(1);
+    val = results_ripp{t}.avg_lat_rt; avg_lat_ripp(t) = val(1);
+    val = results_tqdo{t}.avg_lat_rt; avg_lat_tqdo(t) = val(1);
+    val = results_ripp{t}.util_ru; util_ru_ripp(t) = val(1);
+    val = results_ripp{t}.util_du; util_du_ripp(t) = val(1);
+    val = results_ripp{t}.util_cu; util_cu_ripp(t) = val(1);
+    val = results_tqdo{t}.util_ru; util_ru_tqdo(t) = val(1);
+    val = results_tqdo{t}.util_du; util_du_tqdo(t) = val(1);
+    val = results_tqdo{t}.util_cu; util_cu_tqdo(t) = val(1);
+    val = results_ripp{t}.cost_sp; cost_ripp(t) = val(1);
+    val = results_tqdo{t}.cost_sp; cost_tqdo(t) = val(1);
 end
 
 %% Figure 1: RT Miss Rate
